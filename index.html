@@ -11,18 +11,12 @@
 </head>
 <body onload='main()'>
     <canvas id="myCanvas"></canvas>
+    <!--For demo:-->
+    <audio id="audioPlayer" controls autoplay>
+        <source src="iu lofi.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+    <button id="startButton">Start Audio & Visualizer</button>
 </body>
 </html>
-<script>
-    // Capture system audio
-    navigator.mediaDevices.getDisplayMedia({ video: false, audio: true })
-    .then(function(stream) {
-        const audioContext = new AudioContext();
-        const source = audioContext.createMediaStreamSource(stream);
-        // Pass the source to the visualizer
-        window.audioSource = source; // Expose globally for access in visualizer.js
-    })
-    .catch(function(err) {
-        console.error("Error capturing system audio: " + err);
-    });
-</script>

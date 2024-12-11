@@ -31,4 +31,3 @@ class Microphone {
         return volume;
     }
 }
-const microphone = new Microphone();
