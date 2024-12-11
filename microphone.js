@@ -6,7 +6,7 @@ class Microphone {
             this.audioContext = new AudioContext(); // part of Web Audio API - properties to analyze audio
             this.microphone = this.audioContext.createMediaStreamSource(stream); // converts raw audop stream to audio nodes (format that api can work with)
             this.analyzer = this.audioContext.createAnalyser(); // used to extract audio time & frequency data 4 visualizations
-            this.analyzer.fftSize = 512; // (fast fourier transformation => to slice audio into equal # of samples)
+            this.analyzer.fftSize = 256; // (fast fourier transformation => to slice audio into equal # of samples)
             const bufferLength = this.analyzer.frequencyBinCount; // equal to 1/2 of fftSize
             this.dataArray = new Uint8Array(bufferLength);
             this.microphone.connect(this.analyzer);
